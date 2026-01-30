@@ -1,0 +1,623 @@
+/* Reset i podstawy */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #2c3e50;
+  background-color: #ffffff;
+}
+
+.container {
+  width: 90%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Logo */
+.logo-container {
+  text-align: center;
+  margin-bottom: 0.2rem;
+}
+
+.logo-container img {
+  max-width: 450px;
+  height: 100px;
+}
+
+/* Header z tłem – zwięzły, o 1/3 krótszy */
+header {
+  background: url('assets/images/paker.png') center/cover no-repeat;
+  color: white;
+  padding: 1.8rem 0 1.2rem; /* zmniejszone z 3rem → 1.8rem, z 2rem → 1.2rem */
+  text-align: center;
+  position: relative;
+}
+
+/* Ciemna warstwa pod tekstem */
+header::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* lekko ciemniejsza dla lepszego kontrastu */
+  z-index: 1;
+}
+
+/* Treść nad tłem */
+header > .container {
+  position: relative;
+  z-index: 2;
+}
+
+/* Tytuł i lead – zachowujemy czytelność */
+header h1 {
+  font-size: 1.7rem;
+  margin-bottom: 0.8rem;
+  line-height: 1.3;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+header .lead {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  color: #EC9123;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+header p {
+  margin-bottom: 0.8rem;
+  font-size: 0.95rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
+}
+
+/* Nawigacja – przyciski wybijające się na tle */
+nav {
+  margin-top: 1.5rem;
+}
+
+nav a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  margin: 0 0.6rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.15); /* lekko przezroczyste białe tło */
+  backdrop-filter: blur(2px); /* efekt szkła – opcjonalny, ale fajny */
+  transition: all 0.25s ease;
+  text-shadow: none;
+}
+
+nav a:hover {
+  background: #EC9123;
+  color: white;
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+/* Przyciski nawigacyjne – styl jak w menu głównym */
+.nav-button {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+  margin: 0 0.6rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(2px);
+  transition: all 0.25s ease;
+}
+
+.nav-button:hover {
+  background: #EC9123;
+  color: white;
+  text-decoration: none;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Specjalny styl dla przycisku „wróć do strony głównej” */
+.back-to-home {
+  margin-right: 1rem;
+  font-size: 0.95rem;
+}
+
+/* Dla telefonów */
+@media (max-width: 768px) {
+  .nav-button {
+    display: block;
+    margin: 0.4rem auto;
+    max-width: 180px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  .nav-button:hover {
+    transform: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  }
+}
+
+
+/* Responsywność dla telefonów */
+@media (max-width: 768px) {
+  header {
+    padding: 1.4rem 0 1rem;
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  header .lead {
+    font-size: 1.05rem;
+  }
+
+  nav a {
+    display: block;
+    margin: 0.4rem auto;
+    max-width: 180px;
+    background: rgba(255, 255, 255, 0.2);
+  }
+
+  nav a:hover {
+    transform: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+  }
+}
+
+
+/* Sekcje */
+.section {
+  padding: 3.5rem 0;
+}
+
+.section:nth-child(even) {
+  background-color: #f8f9fa;
+}
+
+.section h2 {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: #1a3a5f;
+}
+
+.section p {
+  margin-bottom: 1rem;
+}
+
+.stats, .services {
+  list-style: none;
+  margin-top: 1.5rem;
+}
+
+.stats li, .services li {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  position: relative;
+}
+
+.stats li::before,
+.services li::before {
+  content: "•";
+  color: #EC9123; /* kolor punktora = kolor firmowy */
+  font-size: 1.8rem;
+  position: absolute;
+  left: 0;
+  top: -0.2rem;
+}
+
+.clients {
+  font-weight: bold;
+  text-align: center;
+  font-size: 1.1rem;
+  color: #1a3a5f;
+}
+
+/* CTA Button */
+.cta-button {
+  display: inline-block;
+  background: #EC9123; /* Twój kolor firmowy */
+  color: white;
+  padding: 12px 30px;
+  text-decoration: none;
+  border-radius: 4px;
+  font-weight: bold;
+  margin: 1rem 0;
+  transition: background 0.3s;
+}
+
+.cta-button:hover {
+  background: #d17a1a; /* ciemniejszy odcień przy hover */
+  text-decoration: none;
+}
+
+.small {
+  font-size: 0.9rem;
+  color: #777;
+}
+
+/* Footer */
+footer {
+  background: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 1.5rem 0;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+  .logo-container img {
+    max-width: 180px;
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  header .lead {
+    font-size: 1.1rem;
+  }
+
+  nav a {
+    display: block;
+    margin: 0.5rem 0;
+  }
+
+  .section {
+    padding: 2.5rem 0;
+  }
+
+  .section h2 {
+    font-size: 1.5rem;
+  }
+}
+/* Sekcja o założycielu */
+.founder {
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.founder-image img {
+  width: 140px;
+  height: 140px;
+  border-radius: 8px;
+  border: 3px solid #EC9123;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.founder-text p {
+  margin-bottom: 0;
+  font-size: 1.05rem;
+}
+
+/* Responsywność – sekcja o założycielu */
+@media (max-width: 768px) {
+  .founder {
+    flex-direction: column;
+    text-align: center;
+    gap: 1rem;
+  }
+
+  .founder-image img {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto;
+  }
+}
+/* Siatka statystyk */
+.stats-grid {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  margin: 2rem 0 1.5rem;
+}
+
+.stat-item {
+  text-align: center;
+  flex: 1;
+  min-width: 160px;
+}
+
+.stat-item img {
+  width: 100%;
+  max-width: 120px; /* zmniejszyłem z 140px → 120px */
+  height: auto;
+  margin: 0 auto 1rem;
+  display: block;
+  border-radius: 6px; /* delikatne zaokrąglenie – usuń tę linię, jeśli nie chcesz */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.12); /* delikatny cień */
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Opcjonalny efekt przy najechaniu myszką */
+.stat-item img:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.16);
+}
+
+.stat-item p {
+  margin: 0;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.stat-item strong {
+  color: #EC9123;
+  font-size: 1.2rem;
+  display: block;
+}
+
+.stat-note {
+  text-align: center;
+  font-style: italic;
+  color: #555;
+  margin-top: 1.5rem;
+  font-size: 1.05rem;
+}
+.clients-logos {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 1.8rem;
+  margin: 2rem 0;
+  padding: 1rem 0;
+}
+
+.clients-logos img {
+  height: 70px; /* zwiększono z 50px → 70px */
+  width: auto;
+  min-width: 100px; /* minimalna szerokość dla czytelności */
+  object-fit: contain;
+  opacity: 0.9;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+  background: white; /* białe tło pod logo – jeśli nie ma przezroczystości */
+  padding: 6px;
+}
+
+.clients-logos img:hover {
+  opacity: 1;
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.12);
+}
+/* Karuzela – automatyczna */
+.carousel-container {
+  position: relative;
+  max-width: 100%;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+}
+
+.carousel-slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  width: 100%;
+}
+
+.carousel-slide {
+  min-width: 100%;
+  position: relative;
+}
+
+.carousel-slide img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+  display: block;
+}
+
+.carousel-caption {
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  padding: 0.85rem;
+  font-size: 0.9rem;
+  text-align: center;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+/* Strzałki */
+.carousel-prev,
+.carousel-next {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.7);
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.2s;
+}
+
+.carousel-prev {
+  left: 10px;
+}
+
+.carousel-next {
+  right: 10px;
+}
+
+.carousel-prev:hover,
+.carousel-next:hover {
+  background: #EC9123;
+  color: white;
+}
+
+/* Kropki */
+.carousel-dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  gap: 8px;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #ccc;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.carousel-dot.active {
+  background: #EC9123;
+}
+
+@media (max-width: 768px) {
+  .carousel-slide img {
+    height: 200px;
+  }
+}
+
+/* Strzałki nawigacyjne – opcjonalnie */
+.carousel::before,
+.carousel::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.carousel::before {
+  left: -10px;
+  content: '‹';
+  font-weight: bold;
+}
+
+.carousel::after {
+  right: -10px;
+  content: '›';
+  font-weight: bold;
+}
+
+/* Responsywność */
+@media (max-width: 768px) {
+  .carousel {
+    gap: 1rem;
+  }
+
+  .carousel-item {
+    min-width: 250px;
+    max-width: 300px;
+  }
+
+  .carousel-item img {
+    height: 180px;
+  }
+}
+/* FAQ */
+.faq-item {
+  margin-bottom: 1.8rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #eaeaea;
+}
+
+.faq-item:last-child {
+  border-bottom: none;
+  margin-bottom: 0;
+  padding-bottom: 0;
+}
+
+.faq-item h3 {
+  font-size: 1.25rem;
+  color: #1a3a5f;
+  margin-bottom: 0.8rem;
+  font-weight: 600;
+}
+
+.faq-item p {
+  margin-bottom: 0;
+  font-size: 1rem;
+  color: #444;
+}
+/* Lista realizacji */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.project-tile {
+  display: block;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.project-tile:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.18);
+}
+
+.project-tile img {
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  display: block;
+}
+
+.project-title {
+  background: rgba(26, 58, 95, 0.92);
+  color: white;
+  padding: 1rem;
+  font-weight: bold;
+  font-size: 1.1rem;
+  text-align: center;
+  min-height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.3;
+}
+.footer-contact {
+  color: #EC9123;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.footer-contact:hover {
+  text-decoration: underline;
+}
+html {
+  scroll-behavior: smooth;
+}
+.back-to-list {
+  margin-right: 1rem;
+  font-size: 0.95rem;
+}

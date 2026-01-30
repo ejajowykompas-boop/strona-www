@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Iniekcje ciśnieniowe – Kartuzy (płyta denna) | BTB Insulation</title>
+  <meta name="description" content="Zobacz pełną galerię realizacji: iniekcje ciśnieniowe płyty dennej w Kartuzach. Specjalistyczne uszczelnienia dla obiektów inżynieryjnych.">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://btbinsulation.pl/realizacje/kartuzy-plyta-denna/">
+  <meta property="og:title" content="Iniekcje ciśnieniowe – płyta denna w Kartuzach | BTB Insulation">
+  <meta property="og:description" content="Zobacz pełną galerię realizacji: iniekcje ciśnieniowe płyty dennej w Kartuzach. Specjalistyczne uszczelnienia dla obiektów inżynieryjnych.">
+  <meta property="og:image" content="https://btbinsulation.pl/realizacje/kartuzy-plyta-denna/main.jpeg">
+
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://btbinsulation.pl/realizacje/kartuzy-plyta-denna/">
+  <meta property="twitter:title" content="Iniekcje ciśnieniowe – płyta denna w Kartuzach | BTB Insulation">
+  <meta property="twitter:description" content="Zobacz pełną galerię realizacji: iniekcje ciśnieniowe płyty dennej w Kartuzach. Specjalistyczne uszczelnienia dla obiektów inżynieryjnych.">
+  <meta property="twitter:image" content="https://btbinsulation.pl/realizacje/kartuzy-plyta-denna/main.jpeg">
+  <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+  <link rel="apple-touch-icon" href="../../assets/images/logo2.png">
+  <link rel="stylesheet" href="../../style.css" />
+  <style>
+    /* Galeria konkretnej realizacji */
+    .back-to-list {
+      display: inline-block;
+      margin-bottom: 1.5rem;
+      color: #EC9123;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .back-to-list:hover {
+      text-decoration: underline;
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+
+    .gallery-thumb {
+      width: 100%;
+      height: 140px;
+      object-fit: cover;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .gallery-thumb:hover {
+      opacity: 0.9;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.9);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .lightbox.open {
+      display: flex;
+    }
+
+    .lightbox img {
+      max-width: 90%;
+      max-height: 90%;
+      object-fit: contain;
+      border: 3px solid white;
+      border-radius: 4px;
+    }
+
+    .close-lightbox {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+      color: white;
+      font-size: 2.5rem;
+      cursor: pointer;
+      z-index: 1001;
+    }
+    /* Strzałki w lightboxie */
+.lightbox-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  width: 50px;
+  height: 50px;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1001;
+  transition: background 0.2s;
+}
+
+.lightbox-arrow:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+#prev-arrow {
+  left: 20px;
+}
+
+#next-arrow {
+  right: 20px;
+}
+  </style>
+</head>
+<body>
+  <header class="subpage-header">
+    <div class="container">
+      <a href="../../realizacje.html" class="nav-button back-to-list">← Realizacje</a>
+      <h1>Iniekcje ciśnieniowe – Kartuzy (płyta denna)</h1>
+    </div>
+  </header>
+
+  <section class="section">
+    <div class="container">
+      <div class="gallery-grid" id="gallery">
+        <!-- Miniatury zostaną wygenerowane przez JS -->
+      </div>
+    </div>
+  </section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox">
+  <span class="close-lightbox" id="close-lightbox">&times;</span>
+  <button class="lightbox-arrow" id="prev-arrow">&lt;</button>
+  <button class="lightbox-arrow" id="next-arrow">&gt;</button>
+  <img id="lightbox-img" src="" alt="Powiększone zdjęcie z realizacji">
+</div>
+
+<script>
+  const images = [
+    '1.jpeg',
+    '2.jpeg'
+  ];
+
+  const gallery = document.getElementById('gallery');
+  const lightbox = document.getElementById('lightbox');
+  const lightboxImg = document.getElementById('lightbox-img');
+  const closeBtn = document.getElementById('close-lightbox');
+  const prevBtn = document.getElementById('prev-arrow');
+  const nextBtn = document.getElementById('next-arrow');
+
+  let currentIndex = 0;
+
+  images.forEach((filename, index) => {
+    const img = document.createElement('img');
+    img.src = filename;
+    img.alt = 'Zdjęcie z realizacji – ' + filename;
+    img.className = 'gallery-thumb';
+    img.addEventListener('click', () => {
+      openLightbox(index);
+    });
+    gallery.appendChild(img);
+  });
+
+  function openLightbox(index) {
+    currentIndex = index;
+    lightboxImg.src = images[currentIndex];
+    lightbox.classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function showPrev() {
+    currentIndex = (currentIndex - 1 + images.length) % images.length;
+    lightboxImg.src = images[currentIndex];
+  }
+
+  function showNext() {
+    currentIndex = (currentIndex + 1) % images.length;
+    lightboxImg.src = images[currentIndex];
+  }
+
+  closeBtn.addEventListener('click', () => {
+    lightbox.classList.remove('open');
+    document.body.style.overflow = '';
+  });
+
+  prevBtn.addEventListener('click', showPrev);
+  nextBtn.addEventListener('click', showNext);
+
+  lightbox.addEventListener('click', (e) => {
+    if (e.target === lightbox) {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+
+    if (e.key === 'Escape') {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    } else if (e.key === 'ArrowLeft') {
+      showPrev();
+    } else if (e.key === 'ArrowRight') {
+      showNext();
+    }
+  });
+</script>
+<footer>
+  <div class="container">
+    <p>&copy; 2025 BTB Insulation. Wszelkie prawa zastrzeżone.</p>
+    <p><a href="../../index.html#kontakt" class="footer-contact">KONTAKT</a></p>
+  </div>
+</footer>
+</body>
+</html>
